@@ -3,20 +3,49 @@ import { CardPlanos } from "../components/cards/CardPlano";
 import { BtnComponent } from "../components/buttom";
 import { MenuComponent } from "../components/menu";
 
-export default function Home() {
+import {
+  FaCamera,
+  FaHeart,
+  FaRegClock
+} from "react-icons/fa";
+import { BiSupport } from "react-icons/bi";
+
+import homePiano from "../../public/bruno-piano.png";
+import { BtnIconComponent } from "../components/buttom/BtnIcon";
+import Home from "./(pages)/home/page";
+import Sobre from "./(pages)/sobre/page";
+
+export default function App() {
+
+  const opcoesIcones = [
+    {
+      id: 1,
+      icone: FaCamera,
+      titulo: "Aulas em video"
+    },
+    {
+      id: 2,
+      icone: FaHeart,
+      titulo: "Acesso limitado"
+    },
+    {
+      id: 3,
+      icone: FaRegClock,
+      titulo: "Aprenda no seu tempo"
+    },
+    {
+      id: 4,
+      icone: BiSupport,
+      titulo: "Suporte exclusivo"
+    },
+  ]
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <main className="w-full h-auto min-h-screen">
 
-          <MenuComponent />
-        <div className="w-full flex items-center gap-5">
+      <Home />
+      <Sobre />
 
-
-          <CardPlanos />
-
-        </div>
-
-      </main>
-    </div>
+    </main>
   );
 }
