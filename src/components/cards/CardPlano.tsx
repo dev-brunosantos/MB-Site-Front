@@ -4,7 +4,6 @@ export interface CardPlanosProps {
     tituloPlano: string;
     valor: number;
     beneficios: string[];
-
 }
 
 // export const CardPlanos = (
