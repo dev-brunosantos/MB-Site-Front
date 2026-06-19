@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Button } from "@/src/components/ui/button"
-import { Check, ChevronLeft, ChevronRight } from "lucide-react"
+import { Check, ChevronLeft, ChevronRight, ShieldCheck } from "lucide-react"
 
 export const PlanosComponent = () => {
 
@@ -170,6 +170,21 @@ export const PlanosComponent = () => {
                     ))}
                 </div>
 
+            </div>
+
+            {/* Card de Garantia de 7 Dias para quebrar objeção final */}
+            <div className="mt-2 flex items-start gap-4 p-5 rounded-2xl bg-[#070b24] border border-blue-500/10">
+                <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
+                    <ShieldCheck className="w-6 h-6 text-blue-400" />
+                </div>
+                <div className="flex flex-col gap-1">
+                    <h4 className="text-sm font-bold text-white tracking-wide">
+                        Garantia Incondicional de 7 Dias
+                    </h4>
+                    <p className="text-[12.5px] text-slate-400 leading-relaxed">
+                        Experimente sem qualquer compromisso. Se você não se adaptar ao método dentro dos primeiros 7 dias, devolvemos 100% do seu dinheiro investido.
+                    </p>
+                </div>
             </div>
 
         </section>
