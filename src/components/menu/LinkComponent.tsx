@@ -7,7 +7,10 @@ interface LinkComponentProps {
 
 export const LinkComponent = ({ link, titulo }: LinkComponentProps) => {
     return(
-        <Link href={link}>
+        <Link 
+            href={link}
+            className="my-2 text-[20px] font-bold"    
+        >
             {titulo}
         </Link>
     )
