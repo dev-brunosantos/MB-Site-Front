@@ -14,7 +14,7 @@ export default function Perfil() {
             <MenuAluno />
 
             <main className="w-full max-w-md mx-auto pt-20 pb-16 px-6 relative z-10 flex flex-col gap-16">
-                <div className="p-6 flex flex-col gap-6 animate-in fade-in duration-200">
+                <div className="flex flex-col gap-6 animate-in fade-in duration-200">
                     <div className="flex flex-col gap-1">
                         <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
                             Meu Perfil
