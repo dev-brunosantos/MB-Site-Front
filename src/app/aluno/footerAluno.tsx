@@ -5,7 +5,7 @@ import { BarChart2, BookOpen, Heart, Home, User } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export const FooterAlunoComponent = () => {
-
+    
     const [abaAtiva, setAbaAtiva] = useState<"dashboard" | "cursos" | "progresso" | "favoritos" | "perfil">("dashboard")
     const [cursoSelecionadoId, setCursoSelecionadoId] = useState<string | null>(null)
 
@@ -57,7 +57,7 @@ export const FooterAlunoComponent = () => {
 
                 {/* Aba Perfil */}
                 <button
-                    onClick={() => { setAbaAtiva("perfil"); setCursoSelecionadoId(null); }}
+                    onClick={() => { setAbaAtiva("perfil"); setCursoSelecionadoId(null); router.push('/aluno/perfil') }}
                     className={`flex flex-col items-center gap-1 flex-1 py-2 focus:outline-none transition-all ${abaAtiva === "perfil" ? "text-[#0052e0]" : "text-slate-400"
                         }`}
                 >
