@@ -10,7 +10,7 @@ export const DepoimentosComponent = () => {
     const depoimentos = [
         {
             id: 0,
-            nome: "Mariana Costa",
+            nome: "Teste 1",
             instrumento: "Aluna de Saxofone",
             mensagem: "As aulas práticas e a didática do professor facilitaram muito meu aprendizado. Em poucos meses já consigo tocar minhas músicas favoritas no sax!",
             nota: 5,
@@ -18,7 +18,7 @@ export const DepoimentosComponent = () => {
         },
         {
             id: 1,
-            nome: "Lucas Silva",
+            nome: "Teste 2",
             instrumento: "Aluno de Flauta",
             mensagem: "O suporte exclusivo tira todas as dúvidas rapidamente e o cronograma no meu próprio ritmo foi essencial para que eu não desistisse na correria do dia a dia.",
             nota: 5,
@@ -26,7 +26,7 @@ export const DepoimentosComponent = () => {
         },
         {
             id: 2,
-            nome: "Rodrigo Alencar",
+            nome: "Teste 3",
             instrumento: "Aluno de Saxofone",
             mensagem: "Metodologia incrível! A plataforma é super organizada e os materiais complementares de estudo dão um suporte gigante para quem está começando do zero.",
             nota: 5,

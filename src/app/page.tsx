@@ -2,6 +2,8 @@ import { HomeComponent } from "./(pages)/home";
 import { SobreComponent } from "./(pages)/sobre";
 import { DepoimentosComponent } from "./(pages)/depoimentos";
 import { PlanosComponent } from "./(pages)/planos";
+import { DuvidasComponent } from "./(pages)/duvidas";
+import { Separador } from "../components/Separador";
 
 export default function App() {
 
@@ -13,11 +15,20 @@ export default function App() {
 
       <main className="w-full max-w-md mx-auto pt-16 pb-16 px-6 relative z-10 flex flex-col gap-16">
 
+        {/* ----------------- 1. HOME ----------------- */}
         <HomeComponent />
+        <Separador />
+        {/* ----------------- 2. SEÇÃO SOBRE MIM ----------------- */}
         <SobreComponent />
+        <Separador />
+        {/* ----------------- 3. SEÇÃO DE DEPOIMENTOS ----------------- */}
         <DepoimentosComponent />
+        <Separador />
+        {/* ----------------- 4. SEÇÃO DE PLANOS ----------------- */}
         <PlanosComponent />
-
+        <Separador />
+        {/* ----------------- 5. SEÇÃO DE PERGUNTAS FREQUENTES (FAQ) (NOVA) ----------------- */}
+        <DuvidasComponent />
 
       </main>
     </div>
