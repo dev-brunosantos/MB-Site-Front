@@ -4,71 +4,62 @@ import { MdMenu } from "react-icons/md"
 import { BtnComponent } from "../buttom"
 import { LinkComponent } from "./LinkComponent"
 import { useEffect, useState } from "react"
+import { Button } from "../ui/button"
+import { Menu, Music, X } from "lucide-react"
 
 export const MenuComponent = () => {
 
-    const links = [
-        { link: "/", titulo: "Inicio" },
-        { link: "/sobre", titulo: "Sobre" },
-        { link: "/cursos", titulo: "Cursos" },
-        { link: "/planos", titulo: "Planos" },
-        { link: "/contato", titulo: "Contato" },
-    ]
+    const [menuAberto, setMenuAberto] = useState(false)
 
-    const [menuAberto, setMenuAberto] = useState(false);
+    const links = [
+        { link: "#inicio", titulo: "Inicio" },
+        { link: "#sobre", titulo: "Sobre" },
+        { link: "#cursos", titulo: "Cursos" },
+        { link: "#planos", titulo: "Planos" },
+        { link: "#contato", titulo: "Contato" },
+    ]
 
     const abrirMenu = () => {
         setMenuAberto(!menuAberto)
     }
 
     return (
-        <header
-            className="
-                w-full max-w-300 h-15 border-b-2 pl-5 flex items-center justify-between 
-                fixed top-0 left-1/2 -translate-x-1/2 bg-[#040427] text-white z-50
-            "
-        >
-
-            <div className="h-full flex items-center justify-center">
-                <h1>
-                    <a href="/">Logomarca</a>
-                </h1>
+        <header className="w-full max-w-md mx-auto h-16 border-b border-white/5 px-6 flex items-center justify-between fixed top-0 left-1/2 -translate-x-1/2 bg-[#020215]/95 backdrop-blur-md text-white z-50">
+            <div className="flex items-center gap-2">
+                <Music className="w-5 h-5 text-blue-500 fill-blue-500" />
+                <span className="font-bold text-lg tracking-tight">SuaLogo</span>
             </div>
 
-            <nav
-                className="
-                    w-[70%] h-full relative 
-                "
-            >
-
-                <ul
-                    className="
-                        w-full h-auto rounded-bl-lg pb-10 flex flex-col items-center justify-evenly gap-8 absolute top-full overflow-hidden transition-all duration-300 shadow-lg bg-[#040427] 
-                    "
-                    style={{
-                        // height: menuAberto ? "auto" : "0",
-                        paddingBottom: menuAberto ? "40px" : "0px",
-                        right: menuAberto ? "0%" : "-100%"
-                    }}
-                >
-                    {links.map(opt => (
-                        <LinkComponent
-                            key={opt.titulo}
-                            link={opt.link}
-                            titulo={opt.titulo}
-                        />
-                    ))}
-                </ul>
-            </nav>
-
-
-            <button
-                className="absolute right-2"
+            {/* Botão Hambúrguer para Mobile */}
+            <Button
+                className=" text-white hover:bg-slate-800/50 h-10 w-10 rounded-full"
                 onClick={abrirMenu}
+                aria-label="Toggle Menu"
             >
-                <MdMenu size={35} />
-            </button>
+                {menuAberto ? <X size={26} /> : <Menu size={26} />}
+            </Button>
 
+            {/* Menu Dropdown responsivo */}
+            {menuAberto && (
+                <nav className="absolute top-16 left-0 w-full bg-[#020215] border-b border-white/10 py-6 px-8 flex flex-col gap-4 animate-in slide-in-from-top-5 duration-200">
+                    <ul className="flex flex-col gap-4">
+                        {links.map((opt) => (
+                            <li key={opt.titulo}>
+                                <a
+                                    href={opt.link}
+                                    className="block text-slate-300 hover:text-white py-2 text-base font-medium border-b border-white/5"
+                                    onClick={() => setMenuAberto(false)}
+                                >
+                                    {opt.titulo}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                    <Button className="w-full mt-2" onClick={() => setMenuAberto(false)}>
+                        Começar Agora
+                    </Button>
+                </nav>
+            )}
         </header>
     )
 }
