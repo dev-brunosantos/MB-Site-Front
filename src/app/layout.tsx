@@ -28,9 +28,13 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full">
+      <body className="min-h-full ">
         <MenuComponent />
         {children}
+        {/* Footer minimalista de copyright */}
+        <footer className="w-full max-w-md mx-auto text-center py-8 text-xs text-slate-600 border-t border-white/5 relative z-10 bg-[#020215]">
+          <p>&copy; {new Date().getFullYear()} MusicBox. Todos os direitos reservados.</p>
+        </footer>
       </body>
     </html>
   );
