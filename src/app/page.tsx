@@ -1,51 +1,25 @@
-import Image from "next/image";
-import { CardPlanos } from "../components/cards/CardPlano";
-import { BtnComponent } from "../components/buttom";
-import { MenuComponent } from "../components/menu";
-
-import {
-  FaCamera,
-  FaHeart,
-  FaRegClock
-} from "react-icons/fa";
-import { BiSupport } from "react-icons/bi";
-
-import homePiano from "../../public/bruno-piano.png";
-import { BtnIconComponent } from "../components/buttom/BtnIcon";
-import Home from "./(pages)/home/page";
-import Sobre from "./(pages)/sobre/page";
+import { HomeComponent } from "./(pages)/home";
+import { SobreComponent } from "./(pages)/sobre";
+import { DepoimentosComponent } from "./(pages)/depoimentos";
+import { PlanosComponent } from "./(pages)/planos";
 
 export default function App() {
 
-  const opcoesIcones = [
-    {
-      id: 1,
-      icone: FaCamera,
-      titulo: "Aulas em video"
-    },
-    {
-      id: 2,
-      icone: FaHeart,
-      titulo: "Acesso limitado"
-    },
-    {
-      id: 3,
-      icone: FaRegClock,
-      titulo: "Aprenda no seu tempo"
-    },
-    {
-      id: 4,
-      icone: BiSupport,
-      titulo: "Suporte exclusivo"
-    },
-  ]
-
   return (
-    <main className="w-full h-auto min-h-screen">
+    <div className="min-h-screen bg-[#020215] text-slate-100 font-sans selection:bg-blue-600 overflow-x-hidden">
+      {/* ----------------- GRADIENTES DE FUNDO ESTILO BRILHO NEON ----------------- */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[450px] h-[600px] bg-gradient-to-b from-[#0a1740] via-transparent to-transparent opacity-60 pointer-events-none blur-3xl z-0" />
+      <div className="absolute top-[800px] right-0 w-[300px] h-[500px] bg-[#0c1435] opacity-40 pointer-events-none blur-3xl z-0" />
 
-      <Home />
-      <Sobre />
+      <main className="w-full max-w-md mx-auto pt-16 pb-16 px-6 relative z-10 flex flex-col gap-16">
 
-    </main>
+        <HomeComponent />
+        <SobreComponent />
+        <DepoimentosComponent />
+        <PlanosComponent />
+
+
+      </main>
+    </div>
   );
 }
