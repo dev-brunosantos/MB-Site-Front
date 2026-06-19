@@ -6,10 +6,13 @@ import { LinkComponent } from "./LinkComponent"
 import { useEffect, useState } from "react"
 import { Button } from "../ui/button"
 import { Menu, Music, X } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 export const MenuComponent = () => {
 
     const [menuAberto, setMenuAberto] = useState(false)
+
+    const route = useRouter()
 
     const links = [
         { link: "#inicio", titulo: "Inicio" },
@@ -55,8 +58,12 @@ export const MenuComponent = () => {
                             </li>
                         ))}
                     </ul>
-                    <Button className="w-full mt-2" onClick={() => setMenuAberto(false)}>
-                        Começar Agora
+
+                    <Button 
+                        className="h-11 px-6 py-2.5 rounded-lg text-sm tracking-wide bg-[#0052e0] hover:bg-[#0041b3] text-white font-semibold shadow-lg shadow-blue-900/40"
+                        onClick={() => route.push('/login')}
+                    >
+                        Fazer Login
                     </Button>
                 </nav>
             )}
