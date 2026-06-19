@@ -2,11 +2,14 @@
 
 import { useState } from "react";
 import { BarChart2, BookOpen, Heart, Home, User } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export const FooterAlunoComponent = () => {
 
     const [abaAtiva, setAbaAtiva] = useState<"dashboard" | "cursos" | "progresso" | "favoritos" | "perfil">("dashboard")
     const [cursoSelecionadoId, setCursoSelecionadoId] = useState<string | null>(null)
+
+    const router = useRouter();
 
     return (
         <footer className="w-full h-15 fixed bottom-0 left-0 z-50 bg-red-500">
@@ -14,7 +17,7 @@ export const FooterAlunoComponent = () => {
 
                 {/* Aba Dashboard */}
                 <button
-                    onClick={() => { setAbaAtiva("dashboard"); setCursoSelecionadoId(null); }}
+                    onClick={() => { setAbaAtiva("dashboard"); setCursoSelecionadoId(null); router.push('/aluno') }}
                     className={`flex flex-col items-center gap-1 flex-1 py-2 focus:outline-none transition-all ${abaAtiva === "dashboard" && !cursoSelecionadoId ? "text-[#0052e0]" : "text-slate-400"
                         }`}
                 >
@@ -24,7 +27,7 @@ export const FooterAlunoComponent = () => {
 
                 {/* Aba Meus Cursos */}
                 <button
-                    onClick={() => { setAbaAtiva("cursos"); setCursoSelecionadoId(null); }}
+                    onClick={() => { setAbaAtiva("cursos"); setCursoSelecionadoId(null); router.push('/aluno/meus-cursos') }}
                     className={`flex flex-col items-center gap-1 flex-1 py-2 focus:outline-none transition-all ${abaAtiva === "cursos" || cursoSelecionadoId ? "text-[#0052e0]" : "text-slate-400"
                         }`}
                 >
