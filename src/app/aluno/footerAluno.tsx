@@ -36,24 +36,24 @@ export const FooterAlunoComponent = () => {
                 </button>
 
                 {/* Aba Progresso */}
-                <button
+                {/* <button
                     onClick={() => { setAbaAtiva("progresso"); setCursoSelecionadoId(null); }}
                     className={`flex flex-col items-center gap-1 flex-1 py-2 focus:outline-none transition-all ${abaAtiva === "progresso" ? "text-[#0052e0]" : "text-slate-400"
                         }`}
                 >
                     <BarChart2 size={20} className={abaAtiva === "progresso" ? "stroke-[2.5]" : "stroke-[1.8]"} />
                     <span className="text-[10px] font-bold">Progresso</span>
-                </button>
+                </button> */}
 
                 {/* Aba Favoritos */}
-                <button
+                {/* <button
                     onClick={() => { setAbaAtiva("favoritos"); setCursoSelecionadoId(null); }}
                     className={`flex flex-col items-center gap-1 flex-1 py-2 focus:outline-none transition-all ${abaAtiva === "favoritos" ? "text-[#0052e0]" : "text-slate-400"
                         }`}
                 >
                     <Heart size={20} className={abaAtiva === "favoritos" ? "stroke-[2.5]" : "stroke-[1.8]"} />
                     <span className="text-[10px] font-bold">Favoritos</span>
-                </button>
+                </button> */}
 
                 {/* Aba Perfil */}
                 <button
