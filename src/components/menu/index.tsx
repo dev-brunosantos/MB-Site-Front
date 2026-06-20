@@ -15,11 +15,11 @@ export const MenuComponent = () => {
     const route = useRouter()
 
     const links = [
-        { link: "#inicio", titulo: "Inicio" },
-        { link: "#sobre", titulo: "Sobre" },
-        { link: "#cursos", titulo: "Cursos" },
-        { link: "#planos", titulo: "Planos" },
-        { link: "#contato", titulo: "Contato" },
+        { link: "/#inicio", titulo: "Inicio" },
+        { link: "/#sobre", titulo: "Sobre" },
+        { link: "/#cursos", titulo: "Cursos" },
+        { link: "/#planos", titulo: "Planos" },
+        { link: "/#contato", titulo: "Contato" },
     ]
 
     const abrirMenu = () => {
@@ -30,7 +30,7 @@ export const MenuComponent = () => {
         <header className="w-full max-w-md mx-auto h-16 border-b border-white/5 px-6 flex items-center justify-between fixed top-0 left-1/2 -translate-x-1/2 bg-[#020215]/95 backdrop-blur-md text-white z-50">
             <div className="flex items-center gap-2">
                 <Music className="w-5 h-5 text-blue-500 fill-blue-500" />
-                <span className="font-bold text-lg tracking-tight">SuaLogo</span>
+                <span className="font-bold text-lg tracking-tight">MusicBox</span>
             </div>
 
             {/* Botão Hambúrguer para Mobile */}
@@ -49,9 +49,9 @@ export const MenuComponent = () => {
                         {links.map((opt) => (
                             <li key={opt.titulo}>
                                 <a
+                                    onClick={() => setMenuAberto(false)}
                                     href={opt.link}
                                     className="block text-slate-300 hover:text-white py-2 text-base font-medium border-b border-white/5"
-                                    onClick={() => setMenuAberto(false)}
                                 >
                                     {opt.titulo}
                                 </a>
@@ -59,9 +59,12 @@ export const MenuComponent = () => {
                         ))}
                     </ul>
 
-                    <Button 
+                    <Button
                         className="h-11 px-6 py-2.5 rounded-lg text-sm tracking-wide bg-[#0052e0] hover:bg-[#0041b3] text-white font-semibold shadow-lg shadow-blue-900/40"
-                        onClick={() => route.push('/login')}
+                        onClick={() => {
+                            route.push('/login')
+                            setMenuAberto(false)
+                        }}
                     >
                         Fazer Login
                     </Button>
