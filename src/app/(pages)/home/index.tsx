@@ -1,10 +1,16 @@
+"use client"
+
 import { Button } from "@/src/components/ui/button"
-import { Clock, InfinityIcon, Search, Video } from "lucide-react"
+import { Clock, InfinityIcon, Router, Search, Video } from "lucide-react"
 import Image from "next/image"
 
 import homePiano from "@/src/../public/bruno-piano.png"
+import { useRouter } from "next/navigation"
 
 export const HomeComponent = () => {
+
+    const router = useRouter();
+
     return (
         <section id="inicio" className="flex flex-col pt-8 relative">
 
@@ -30,7 +36,10 @@ export const HomeComponent = () => {
                 </p>
 
                 <div className="mt-4">
-                    <Button className="h-11 px-6 py-2.5 rounded-lg text-sm tracking-wide bg-[#0052e0] hover:bg-[#0041b3] text-white font-semibold shadow-lg shadow-blue-900/40">
+                    <Button 
+                        className="h-11 px-6 py-2.5 rounded-lg text-sm tracking-wide bg-[#0052e0] hover:bg-[#0041b3] text-white font-semibold shadow-lg shadow-blue-900/40"
+                        onClick={() => router.push("/novo-aluno")}
+                    >
                         Começar agora
                     </Button>
                 </div>
