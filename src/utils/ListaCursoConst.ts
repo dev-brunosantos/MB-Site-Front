@@ -31,7 +31,7 @@ export const listaCursos: ListaCursosProps[] = [
             tituloCompleto: "Flauta Iniciante",
             professor: "Prof. Seu Nome",
             nivel: "Iniciante",
-            progresso: 65,
+            progresso: 100,
             imagemId: "flauta",
             modulos: [
                 {
