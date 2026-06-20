@@ -7,6 +7,7 @@ import { CardResumoConst } from "@/src/utils/CardResumoConst";
 import { useState } from "react";
 import { listaCursos } from "@/src/utils/ListaCursoConst";
 import { TituloInfor } from "@/src/components/TituloInfor";
+import { BtnFiltroComponent } from "./BtnFiltroComponent";
 
 const CapaCursoSvg = ({ instrumento }: { instrumento: string }) => {
     const cores: Record<string, string> = {
@@ -75,47 +76,34 @@ export default function MeusCursos() {
     return (
         <div className="w-full min-h-screen bg-white text-slate-100 font-sans selection:bg-blue-600 overflow-x-hidden">
 
-            <MenuAluno />
+            <div className="w-full h-15 flex items-center justify-between fixed top-0 left-0 z-50 bg-white">
+                <TituloInfor
+                    titulo="Meus Cursos"
+                    subTitulo="Acesse e continue seus estudos"
+                />
+            </div>
 
-            <main className="w-full max-w-md mx-auto pt-20 pb-16 px-6 relative z-10 flex flex-col gap-16">
+            <main className="w-full max-w-md mx-auto pt-25 pb-16 px-6 relative z-10 flex flex-col gap-16">
 
                 <div className="flex flex-col gap-6 animate-in fade-in duration-200">
 
-                    {/* Cabeçalho */}
-                    <TituloInfor 
-                        titulo="Meus Cursos"
-                        subTitulo="Acesse e continue seus estudos"
-                    />
-
                     {/* Filtros por Categoria/Status (Conforme o mockup 6) */}
-                    <div className="flex gap-2">
-                        <button
-                            onClick={() => setFiltroCurso("todos")}
-                            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${filtroCurso === "todos"
-                                ? "bg-[#0052e0] text-white"
-                                : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                                }`}
-                        >
-                            Todos
-                        </button>
-                        <button
-                            onClick={() => setFiltroCurso("andamento")}
-                            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${filtroCurso === "andamento"
-                                ? "bg-[#0052e0] text-white"
-                                : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                                }`}
-                        >
-                            Em andamento
-                        </button>
-                        <button
-                            onClick={() => setFiltroCurso("concluidos")}
-                            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${filtroCurso === "concluidos"
-                                ? "bg-[#0052e0] text-white"
-                                : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                                }`}
-                        >
-                            Concluídos
-                        </button>
+                    <div className="w-full flex items-center relative justify-evenly gap-2 ">
+                        <BtnFiltroComponent 
+                            filtro={filtroCurso}
+                            setFiltroCurso={() => setFiltroCurso("todos")}
+                            titulo="Todos"
+                        />
+                        <BtnFiltroComponent 
+                            filtro="andamento"
+                            setFiltroCurso={() => setFiltroCurso("andamento")}
+                            titulo="Em andamento"
+                        />
+                        <BtnFiltroComponent 
+                            filtro="concluidos"
+                            setFiltroCurso={() => setFiltroCurso("concluidos")}
+                            titulo="Concluídos"
+                        />
                     </div>
 
                     {/* Listagem Geral dos Cursos Filtrados */}
@@ -127,7 +115,7 @@ export default function MeusCursos() {
                                     onClick={() => abrirCurso(curso.id)}
                                     className="flex items-center justify-between p-4 bg-white border border-slate-100 rounded-2xl shadow-sm hover:border-slate-200 transition-all cursor-pointer active:scale-[0.99]"
                                 >
-                                    <div className="flex items-center gap-3.5 flex-grow">
+                                    <div className="flex items-center gap-3.5 grow">
                                         <CapaCursoSvg instrumento={curso.imagemId} />
 
                                         <div className="flex flex-col gap-1 flex-grow pr-4">
@@ -160,11 +148,8 @@ export default function MeusCursos() {
                             </div>
                         )}
                     </div>
-
                 </div>
-
             </main >
-
         </div >
     )
 }
