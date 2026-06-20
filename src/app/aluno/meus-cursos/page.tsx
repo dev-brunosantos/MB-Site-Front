@@ -6,6 +6,7 @@ import { CardResumoComponent } from "../dashboard/CardResumo";
 import { CardResumoConst } from "@/src/utils/CardResumoConst";
 import { useState } from "react";
 import { listaCursos } from "@/src/utils/ListaCursoConst";
+import { TituloInfor } from "@/src/components/TituloInfor";
 
 const CapaCursoSvg = ({ instrumento }: { instrumento: string }) => {
     const cores: Record<string, string> = {
@@ -71,8 +72,6 @@ export default function MeusCursos() {
         setCursoSelecionadoId(id)
     }
 
-
-
     return (
         <div className="w-full min-h-screen bg-white text-slate-100 font-sans selection:bg-blue-600 overflow-x-hidden">
 
@@ -83,14 +82,10 @@ export default function MeusCursos() {
                 <div className="flex flex-col gap-6 animate-in fade-in duration-200">
 
                     {/* Cabeçalho */}
-                    <div className="flex flex-col gap-1">
-                        <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
-                            Meus Cursos
-                        </h1>
-                        <span className="text-xs font-semibold text-slate-400">
-                            Acesse e continue seus estudos
-                        </span>
-                    </div>
+                    <TituloInfor 
+                        titulo="Meus Cursos"
+                        subTitulo="Acesse e continue seus estudos"
+                    />
 
                     {/* Filtros por Categoria/Status (Conforme o mockup 6) */}
                     <div className="flex gap-2">
