@@ -32,6 +32,8 @@ const LoginProvider = (
             email, senha, logado: true
         })
 
+        localStorage.setItem("logado", "logado")
+
         router.push("/aluno")
     }
 
@@ -41,6 +43,8 @@ const LoginProvider = (
             senha: "",
             logado: false
         })
+
+        localStorage.removeItem("logado")
 
         router.replace("/")
     }
