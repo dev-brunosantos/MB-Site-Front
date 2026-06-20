@@ -1,12 +1,14 @@
 "use client"
 
 import { MenuAluno } from "@/src/components/menu/MenuAluno";
+import { TituloInfor } from "@/src/components/TituloInfor";
 import { Button } from "@/src/components/ui/button";
+import { useLogin } from "@/src/hooks/useLogin";
 import { useRouter } from "next/navigation";
 
 export default function Perfil() {
 
-    const router = useRouter();
+    const { logout } = useLogin();
 
     return (
         <div className="w-full min-h-screen bg-white text-slate-100 font-sans selection:bg-blue-600 overflow-x-hidden">
@@ -15,14 +17,11 @@ export default function Perfil() {
 
             <main className="w-full max-w-md mx-auto pt-20 pb-16 px-6 relative z-10 flex flex-col gap-16">
                 <div className="flex flex-col gap-6 animate-in fade-in duration-200">
-                    <div className="flex flex-col gap-1">
-                        <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
-                            Meu Perfil
-                        </h1>
-                        <span className="text-xs font-semibold text-slate-400">
-                            Gerencie suas preferências de conta
-                        </span>
-                    </div>
+
+                    <TituloInfor 
+                        titulo="Meu Perfil" 
+                        subTitulo="Gerencie suas preferências de conta" 
+                    />
 
                     <div className="flex items-center gap-4 p-4 border border-slate-100 rounded-2xl bg-white shadow-sm">
                         <div className="w-14 h-14 rounded-full bg-[#0052e0] flex items-center justify-center text-white text-lg font-bold">
@@ -46,7 +45,7 @@ export default function Perfil() {
                         <Button 
                             variant="destructive"
                             className="h-11 px-6 py-2.5 rounded-lg text-sm tracking-wide font-semibold shadow-lg "
-                            onClick={() => router.replace('/')}
+                            onClick={logout}
                         >
                             Sair da Conta
                         </Button>
