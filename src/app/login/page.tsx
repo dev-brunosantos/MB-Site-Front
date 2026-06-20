@@ -48,6 +48,7 @@ export default function Login() {
                         titulo="Bem-vindo(a) de volta!"
                         subTitulo="Entre para continuar sua jornada musical."
                         centralizar
+                        cabecalho={false}
                     />
 
                     <FieldGroup className="">

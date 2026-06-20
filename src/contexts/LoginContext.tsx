@@ -1,7 +1,7 @@
 "use client"
 
 import { useRouter } from "next/navigation";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 interface LoginAluno {
     email: string;
@@ -27,30 +27,50 @@ const LoginProvider = (
         email: "", senha: "", logado: false
     })
 
+    useEffect(() => {
+        const usuarioSalvo = localStorage.getItem("usuario");
+
+        if (usuarioSalvo) {
+            setUsuario(JSON.parse(usuarioSalvo));
+        }
+
+        // setLoading(false);
+    }, []);
+
     const login = (email: string, senha: string) => {
-        setUsuario({
-            email, senha, logado: true
-        })
+        const novoUsuario = {
+            email,
+            senha,
+            logado: true
+        };
 
-        localStorage.setItem("logado", "logado")
+        setUsuario(novoUsuario);
 
-        router.push("/aluno")
-    }
+        localStorage.setItem(
+            "usuario",
+            JSON.stringify(novoUsuario)
+        );
+
+        localStorage.setItem("logado", "true");
+
+        router.push("/aluno");
+    };
 
     const logout = () => {
         setUsuario({
             email: "",
             senha: "",
             logado: false
-        })
+        });
 
-        localStorage.removeItem("logado")
+        localStorage.removeItem("usuario");
+        localStorage.removeItem("logado");
 
-        router.replace("/")
+        router.replace("/");
     }
 
     return (
-        <LoginContext.Provider 
+        <LoginContext.Provider
             value={{
                 usuario,
                 login,

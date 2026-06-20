@@ -1,10 +1,13 @@
-"use client"
+// "use client"
 
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { MenuComponent } from "../components/menu";
 import { AppProvider } from "../contexts/AppContexts";
+// import { useEffect, useState } from "react";
+// import { useLogin } from "../hooks/useLogin";
+import { LayoutContent } from "./layoutContent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +30,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const usuarioLogado = localStorage.getItem("logado")
+  // const usuarioLogado = localStorage.getItem("logado")
+
+  // const [usuarioLogado, setUsuarioLogado] = useState<string | null>(null);
+
+  // const { usuario } = useLogin();
+
 
   return (
     <html
@@ -36,11 +44,9 @@ export default function RootLayout({
     >
       <body className="min-h-full ">
         <AppProvider>
-          {
-            // usuarioLogado?.length == 0 && <MenuComponent />
-            !usuarioLogado && <MenuComponent />
-          }
-          {children}
+          <LayoutContent>
+            {children}
+          </LayoutContent>
         </AppProvider>
       </body>
     </html>
